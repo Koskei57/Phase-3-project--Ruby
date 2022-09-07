@@ -12,17 +12,20 @@ class ApplicationController < Sinatra::Base
     book = Book.find(params[:id])
     book.to_json(only: [:id, :title, :publisher, :year], include: { authors: { only: [:name, :gender], include: { reviews: { only: [:comment, :score] } } } })
   end
+
   #get reviews
   get "/reviews" do
     reviews = Review.all
     reviews.to_json
   end
+
   #get author details
   get "/author" do
     author = Author.all
     author.to_json
   end
 
+  #post request
   post "/book" do
     books = Book.create(
       title: params[:title],
