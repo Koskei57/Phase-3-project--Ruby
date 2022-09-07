@@ -6,10 +6,11 @@ class ApplicationController < Sinatra::Base
     book = Book.all
     book.to_json
   end
+
   # get book by id
   get "/book/:id" do
     book = Book.find(params[:id])
-    book.to_json
+    book.to_json(only: [:id, :title, :publisher, :year], include: { authors: { only: [:name, :gender], include: { reviews: { only: [:comment, :score] } } } })
   end
   #get reviews
   get "/reviews" do
@@ -32,7 +33,7 @@ class ApplicationController < Sinatra::Base
     books.to_json
   end
 
-  # update 
+  # update
   patch "/book/:id" do
     books = Book.find(params[:id])
     books.update(
