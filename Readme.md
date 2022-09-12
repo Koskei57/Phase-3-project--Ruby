@@ -3,6 +3,9 @@ This is the name of the website.
 
 ## Description
 This website enables users to  post  their favorite books and view authors info.
+
+## Frontend link
+Github repository link = https://github.com/Koskei57/Frontend.git
 ## Screenshot
 ![myLibrary](./myLib.png)
 ## Features
@@ -16,6 +19,8 @@ As a user of the application,you will be able to:
 
 ## live-link
 link = http://frontend-phi-jet.vercel.app/
+
+
 
  ## Installation
 For one to use the website, you will have to git clone the repository link into your visual code and run the bundle exec rake server to start the server.
